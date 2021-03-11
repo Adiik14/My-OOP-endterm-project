@@ -1,4 +1,4 @@
-package kz.aitu.oop.kolesa.assignment4;
+package kz.aitu.oop.endtermProject;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -15,7 +15,7 @@ public class GUI implements ActionListener {
     private static JLabel success;
     private static ImageIcon backg;
 
-    public static void main(String[] args){
+    public static void uiMethod(){
         JFrame frame = new JFrame();
         JPanel panel = new JPanel();
         frame.setSize(400, 500);
