@@ -1,6 +1,6 @@
-package kz.aitu.oop.endtermProject.Interfaces;
+package kz.aitu.oop.endtermProject;
 
-import kz.aitu.oop.endtermProject.Input;
+import kz.aitu.oop.endtermProject.Interfaces.UserAccount;
 
 public class User implements UserAccount {
     String Login;
