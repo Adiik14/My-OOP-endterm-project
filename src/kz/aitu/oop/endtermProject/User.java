@@ -9,10 +9,10 @@ public class User implements UserAccount {
 
     @Override
     public void AuthorizationData(String L, String P) {
-        if(GUI.Success == true) {
-            Login = L;
-            Password = P;
-        }
+//        if(GUI.Success == true) {
+//            Login = L;
+//            Password = P;
+//        }
     }
 
     @Override

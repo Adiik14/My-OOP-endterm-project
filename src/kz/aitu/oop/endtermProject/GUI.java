@@ -15,7 +15,7 @@ public class GUI implements ActionListener {
     private static JButton button;
     private static JLabel success;
     private static ImageIcon backg;
-    static Boolean Success = false;
+    //static Boolean Success = false;
 
     public static void uiMethod(){
         JFrame frame = new JFrame();
@@ -64,7 +64,7 @@ public class GUI implements ActionListener {
 
         if( user.equals("Aidar") && password.equals("228") ){   //Check existing logins & password
             success.setText("Login successfully !");
-            Success = true;
+            //Success = true;
         }
         else{
             success.setText("Incorrect username/password !");   //Error

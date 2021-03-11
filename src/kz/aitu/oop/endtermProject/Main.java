@@ -11,9 +11,10 @@ public class Main {
         String user = "postgres";
         String password = "1291";
         dbc.connect(url, user, password);
+        dbc.execSQL();
         UserAccount UserAc = new User();
         GUI.uiMethod();
-        //System.out.println();
+        System.out.println();
 
     }
 }

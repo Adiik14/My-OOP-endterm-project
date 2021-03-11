@@ -27,25 +27,26 @@ public class PostgreSQL implements DBСonnection {
     }
 
     @Override
-    public String execSQL(String sql, String[] params) {
+    public String execSQL() {
+        try {
+            String query = "select * from Account";
+            rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                int Account_id = rs.getInt(1);
+                String Account_Login = rs.getString(2);
+                String Account_Password = rs.getString(3);
+                //System.out.printf("Account_id: %d, Account_login: %s, Account_password: %s %n", Account_id, Account_Login, Account_Password);
+            }
+        } catch (SQLException sqlEx) {
+            sqlEx.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public void Stop() {
-        try {
-            String query = "";
-            rs = stmt.executeQuery(query);
 
-            while (rs.next()) {
-                int id = rs.getInt(1);
-                String Login = rs.getString(2);
-                String Password = rs.getString(3);
-                //System.out.printf("id: %d, Celsius: %s, Fahrenheit: %s, Kelvin: %s %n", id, Login, Password, Kelvin);
-            }
-        } catch (SQLException sqlEx) {
-            sqlEx.printStackTrace();
-        } finally {
             try {
                 con.close();
             } catch (SQLException se) { /*can't do anything */ }
@@ -57,4 +58,4 @@ public class PostgreSQL implements DBСonnection {
             } catch (SQLException se) { /*can't do anything */ }
         }
     }
-}
+
