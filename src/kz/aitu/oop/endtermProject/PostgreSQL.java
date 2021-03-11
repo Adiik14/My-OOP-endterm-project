@@ -36,7 +36,7 @@ public class PostgreSQL implements DBСonnection {
                 int Account_id = rs.getInt(1);
                 String Account_Login = rs.getString(2);
                 String Account_Password = rs.getString(3);
-                //System.out.printf("Account_id: %d, Account_login: %s, Account_password: %s %n", Account_id, Account_Login, Account_Password);
+                System.out.printf("Account_id: %d, Account_login: %s, Account_password: %s %n", Account_id, Account_Login, Account_Password);
             }
         } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
