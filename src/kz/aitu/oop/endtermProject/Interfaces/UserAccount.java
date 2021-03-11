@@ -1,4 +1,4 @@
-package kz.aitu.oop.endtermProject;
+package kz.aitu.oop.endtermProject.Interfaces;
 
 public interface UserAccount {
     void AuthorizationData();
