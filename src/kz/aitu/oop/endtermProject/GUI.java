@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import kz.aitu.oop.endtermProject.Interfaces.UserAccount;
 
 public class GUI implements ActionListener {
 
@@ -14,6 +15,7 @@ public class GUI implements ActionListener {
     private static JButton button;
     private static JLabel success;
     private static ImageIcon backg;
+    static Boolean Success = false;
 
     public static void uiMethod(){
         JFrame frame = new JFrame();
@@ -59,11 +61,13 @@ public class GUI implements ActionListener {
         String user = userText.getText();
         String password = pswd.getText();
         System.out.println(user + ", " + pswd );
-        if( user.equals("Aidar") && password.equals("228") ){
+
+        if( user.equals("Aidar") && password.equals("228") ){   //Check existing logins & password
             success.setText("Login successfully !");
+            Success = true;
         }
         else{
-            success.setText("Incorrect username/password !");
+            success.setText("Incorrect username/password !");   //Error
         }
     }
 

@@ -5,10 +5,14 @@ import kz.aitu.oop.endtermProject.Interfaces.UserAccount;
 public class User implements UserAccount {
     String Login;
     String Password;
+    String Car;
+
     @Override
-    public void AuthorizationData() {
-        Login = Input.myReadLnStr();
-        Password = Input.myReadLnStr();
+    public void AuthorizationData(String L, String P) {
+        if(GUI.Success == true) {
+            Login = L;
+            Password = P;
+        }
     }
 
     @Override
