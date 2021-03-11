@@ -1,5 +1,7 @@
 package kz.aitu.oop.endtermProject;
 
+import kz.aitu.oop.endtermProject.Interfaces.DBСonnection;
+
 public class Main {
     public static void main(java.lang.String[] args) {
         DBСonnection dbc;
