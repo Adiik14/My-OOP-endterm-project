@@ -13,6 +13,6 @@ public class Main {
         dbc.connect(url, user, password);
         UserAccount UserAc = new User();
         GUI.uiMethod();
-        System.out.println();
+        //System.out.println();
     }
 }
