@@ -17,6 +17,7 @@ public class GUI implements ActionListener {
     private static ImageIcon backg;
     public static String LoginGetter;
     //static Boolean Success = false;
+    ImageIcon icon;
 
     public static void uiMethod(){
         JFrame frame = new JFrame();
@@ -27,6 +28,9 @@ public class GUI implements ActionListener {
         frame.add(panel);
 
         panel.setLayout(null);
+
+       // icon = new ImageIcon("pictures/images.png");
+        //setIconImage(icon.get)
 
         username = new JLabel("Username");
 
@@ -63,6 +67,7 @@ public class GUI implements ActionListener {
         String password = pswd.getText();
         System.out.println(user + ", " + pswd );
         LoginGetter = user;
+
 //        if( user.equals("Aidar") && password.equals("228") ){   //Check existing logins & password
 //            success.setText("Login successfully!");
 //            //Success = true;
@@ -70,6 +75,7 @@ public class GUI implements ActionListener {
 //        else{
 //            success.setText("Incorrect username/password!");   //Error
 //        }
+
         for(int i = 0; i < Main.dbc.tableLength(); i++)
         {
             Main.log = Main.dbc.execSQL(Main.log, i);
