@@ -63,16 +63,22 @@ public class GUI implements ActionListener {
         String password = pswd.getText();
         System.out.println(user + ", " + pswd );
         LoginGetter = user;
-        if( user.equals("Aidar") && password.equals("228") ){   //Check existing logins & password
-            success.setText("Login successfully!");
-            //Success = true;
-        }
-        else{
-            success.setText("Incorrect username/password!");   //Error
-        }
+//        if( user.equals("Aidar") && password.equals("228") ){   //Check existing logins & password
+//            success.setText("Login successfully!");
+//            //Success = true;
+//        }
+//        else{
+//            success.setText("Incorrect username/password!");   //Error
+//        }
         for(int i = 0; i < Main.dbc.tableLength(); i++)
         {
             Main.log = Main.dbc.execSQL(Main.log, i);
+            if (LoginChecker.algorithm(Main.log, user)) {
+                success.setText("Login successfully!");
+            }
+            else{
+                success.setText("Incorrect username/password!");   //Error
+            }
             System.out.println(LoginChecker.algorithm(Main.log, user));
         }
 
