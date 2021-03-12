@@ -1,0 +1,69 @@
+create table account(
+user_id int primary key,
+login varchar,
+password varchar,
+fname varchar,
+lname varchar,
+balance float);
+
+insert into account(
+values (1,'AidarZhun@mail.ru', 'aidar123','Aidar','Zhunussov',20000.3),
+(2,'adiltazhiev.14@mail.ru','adek123','Adil','Zhunussov',999999.9),
+(3,'danik.kaifarik@mail.ru','dan123','Daniyar','Abdykaparov',999999.9));
+ 
+create table cars(
+car_id int primary key,
+car_brand varchar,
+car_model varchar,
+car_price float,
+car_year date,
+car_description varchar,
+car_photo varchar,
+car_privod varchar,
+car_color varchar,
+car_fuel varchar,
+car_type varchar,
+car_volume float,
+car_mileage int,
+car_city varchar);
+
+INSERT INTO public.cars(
+  car_id, car_brand, car_model, car_price, car_year, car_description, car_photo, car_privod, car_color, car_fuel, car_type, car_volume, car_mileage, car_city)
+  VALUES (1, 'toyota', 'camri', 12540.25, 2019, 'обмен', ?, 'FWD', 'white', 'diesel', 'sedan', 1.7, 123000, 'Moskow'),
+  (2, 'toyota', 'corolla', 13740.25, 2018, 'без торга', ?, 'FWD', 'red', 'petrol', 'sedan', 2.6, 122560, 'Pekin'),
+  (3, 'toyota', 'land-cruiser', 955632.75, 2020, 'договарная цена', ?, '4WD', 'black', 'diesel', 'SUV', 3.3, 456000, 'New-Yourk'),
+  (4, 'lexus', 'LX570', 12540.45, 2017, 'обмен с доплатой', ?, '4WD', 'green', 'petrol', 'SUV', 4.9, 152640, 'Almaty'),
+  (5, 'lexus', 'RX350', 17440.25, 2021, 'окончательная цена', ?, 'AWD', 'grey', 'diesel', 'crossover', 2.8, 230154, 'Berlin'),
+  (6, 'lexus', 'ES250', 325870.25, 2020, 'без торга', ?, 'FWD', 'blue', 'petrol', 'sedan', 1.9, 124000, 'France'),
+  (7, 'mercedes-benz', 'E200', 156940.25, 2019, 'обмен', ?, 'RWD', 'grey', 'diesel', 'sedan', 2.1, 132000, 'Astana'),
+  (8, 'mercedes-benz', 'S500', 12590.25, 2018, 'договорная цена', ?, 'RWD', 'white', 'diesel', 'sedan', 4.2, 123990, 'Kostanay'),
+  (9, 'mercedes-benz', 'G63', 23540.25, 2021, 'окончательная цена', ?, '4WD', 'green', 'petrol', 'SUV', 2.6, 326000, 'Taldykorgan'),
+  (10, 'BMW', 'X5', 96540.25, 2018, 'без торга', ?, '4WD', 'black', 'petrol', 'crossover', 3.4, 123000, 'Semei'),
+    (11, 'BMW', 'M3', 36540.25, 2020, 'договорная цена', ?, 'RWD', 'white', 'diesel', 'sedan', 4.4, 632000, 'Taraz'),
+  (12, 'BMW', '540i', 86540.25, 2021, 'окончательная цена', ?, 'RWD', 'red', 'diesel', 'sedan', 5.4, 196300, 'Alakol'),
+  (13, 'Audi', 'R8', 56540.25, 2019, 'обмен', ?, '4WD', 'blue', 'petrol', 'sedan', 1.4, 193000, 'Aktobe'),
+  (14, 'Audi', 'Q7', 96340.25, 2016, '', ?, '4WD', 'black', 'petrol', 'crossover', 2.9, 132500, 'Aktau'),
+  (15, 'Audi', 'A5', 89040.25, 2020, 'договорная цена', ?, 'FWD', 'grey', 'diesel', 'sedan',3.0 , 783000, 'Alatau'),
+  (16, 'LADA', '2114', 789540.25, 2019, 'окончательная цена', ?, 'FWD', 'green', 'diesel', 'hatchback', 4.7, 163400, 'Almaty'),
+  (17, 'LADA', '2107', 899540.25, 2020, 'обмен', ?, 'RWD', 'white', 'petrol', 'sedan', 5.7, 965470, 'Astana'),
+  (18, 'LADA', 'Granta', 965145.25, 2017, 'без торга', ?, 'FWD', 'black', 'diesel', 'hatchback', 5.3, 985610, 'Zhambyl'),
+  (19, 'Subaru', 'Forester', 145267.25, 2018, 'обмен с доплатой', ?, 'AWD', 'grey', 'petrol', 'crossover', 4.8, 985400, 'Karatau'),
+  (20, 'Subaru', 'WRX STI', 879545.25, 2020, 'окончательная цена', ?, 'RWD', 'white', 'diesel', 'sedan', 3.9, 456200, 'Karaganda'),
+  (21, 'Subaru', 'OutBack', 652140.25, 2021, 'обмен с доплатой', ?, 'FWD', 'black', 'diesel', 'crossever', 4.8, 654400, 'Karatal');
+  
+  
+create table Offers(
+offer_id  int primary key,
+Car_id int,
+Account_id int,
+publishing_date date,
+foreign key(Car_id) references cars (car_id),
+foreign key (Account_id)references account(user_id));
+
+create table FavoriteOffers(
+Favorites_id int primary key,
+Acount_id int,
+Offers_id int,
+foreign key (Acount_id) references account(user_id),
+foreign key (offers_id) references offers(offer_id));
+
