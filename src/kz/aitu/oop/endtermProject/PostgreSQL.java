@@ -25,23 +25,47 @@ public class PostgreSQL implements DBСonnection {
         }
         return null;
     }
-
     @Override
-    public String execSQL() {
+    public int tableLength() {
+        int counter = 0;
         try {
+
             String query = "select * from Account";
             rs = stmt.executeQuery(query);
 
             while (rs.next()) {
-                int Account_id = rs.getInt(1);
-                String Account_Login = rs.getString(2);
-                String Account_Password = rs.getString(3);
-                System.out.printf("Account_id: %d, Account_login: %s, Account_password: %s %n", Account_id, Account_Login, Account_Password);
+                counter++;
+
             }
         } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
         }
-        return null;
+        return counter;
+    }
+
+    @Override
+    public String execSQL(String returner, int counter) {
+        try {
+            if (counter < tableLength()) {
+            String query = "select * from Account where Account_id = " + counter + 1;
+            rs = stmt.executeQuery(query);
+            while (rs.next()) {
+
+                    int Account_id = rs.getInt(1);
+                    String Account_Login = rs.getString(2);
+                    //String Account_Password = rs.getString(3);
+                    //System.out.printf("Account_id: %d, Account_login: %s, Account_password: %s %n", Account_id, Account_Login, Account_Password);
+                    //System.out.printf("id %d,l %s %n",Account_id, Account_Login);
+                    returner = Account_Login;
+
+                }
+            }
+
+
+        } catch (SQLException sqlEx) {
+            sqlEx.printStackTrace();
+        }
+        return returner;
     }
 
     @Override

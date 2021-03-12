@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import kz.aitu.oop.endtermProject.Interfaces.UserAccount;
+import kz.aitu.oop.endtermProject.LoginChecker;
 
 public class GUI implements ActionListener {
 
@@ -15,6 +15,7 @@ public class GUI implements ActionListener {
     private static JButton button;
     private static JLabel success;
     private static ImageIcon backg;
+    public static String LoginGetter;
     //static Boolean Success = false;
 
     public static void uiMethod(){
@@ -61,14 +62,24 @@ public class GUI implements ActionListener {
         String user = userText.getText();
         String password = pswd.getText();
         System.out.println(user + ", " + pswd );
-
+        LoginGetter = user;
         if( user.equals("Aidar") && password.equals("228") ){   //Check existing logins & password
-            success.setText("Login successfully !");
+            success.setText("Login successfully!");
             //Success = true;
         }
         else{
-            success.setText("Incorrect username/password !");   //Error
+            success.setText("Incorrect username/password!");   //Error
         }
+        for(int i = 0; i < Main.dbc.tableLength(); i++)
+        {
+            Main.log = Main.dbc.execSQL(Main.log, i);
+            System.out.println(LoginChecker.algorithm(Main.log, user));
+        }
+
+    }
+
+    static String GetUserLogin() {
+        return LoginGetter;
     }
 
     //backg = new ImageIcon(this.getClass().getResources(/car.jpg))
